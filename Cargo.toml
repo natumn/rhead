@@ -1,0 +1,6 @@
+[package]
+name = "rhead"
+version = "0.1.0"
+authors = ["natumn <natsume.pcuse75@gmail.com>"]
+
+[dependencies]
