@@ -4,8 +4,7 @@ use std::{env, process};
 use getopts::Options;
 use std::fs::File;
 use std::path::Path;
-use std::io::{self, BufRead, BufReader};
-use std::error::Error;
+use std::io::{BufRead, BufReader};
 
 fn print_usage(program: &str, opts: &Options) {
     let brief = format!("Usage: {} FILE [options]", program);
@@ -31,7 +30,6 @@ fn head(lines: i32, filename: String) -> i32 {
     // ファイル読み込み
     let string = String::from(filename);
     let path = Path::new(&string);
-    let display = path.display();
     let mut file = BufReader::new(File::open(&path).unwrap());
 
     if lines <= 0 {
@@ -47,7 +45,7 @@ fn head(lines: i32, filename: String) -> i32 {
             );
             print!("{}", buf);
             count += 1;
-            if lines == count {
+            if lines == count || buf == "" {
                 done = true;
             }
             buf.clear();
@@ -79,12 +77,14 @@ fn main() {
         None => process::exit(0),
     };
     let lines_i32 = lines_string.parse::<i32>().unwrap();
+    /*
     let input = if !matches.free.is_empty() {
         matches.free[0].clone()
     } else {
         print_usage(&program, &opts);
         return;
     };
+    */
 
     process::exit(head(lines_i32, filename));
 }

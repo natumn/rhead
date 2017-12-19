@@ -1,11 +1,11 @@
-1 cat
+1 kin
 2 dog
-3 hgoe
-4 gjss
-5 gjs
-6 gjds
-7 vldld
-8 dlmsb
+3 hoge
+4 piyo
+5 good
+6 bad
+7 jk
+8 foo
 9
 a
 v
