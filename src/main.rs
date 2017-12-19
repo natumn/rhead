@@ -45,7 +45,7 @@ fn head(lines: i32, filename: String) -> i32 {
             file.read_line(&mut buf).expect(
                 "reading from cursor won't fail",
             );
-            println!("{:?}", buf);
+            print!("{}", buf);
             count += 1;
             if lines == count {
                 done = true;
